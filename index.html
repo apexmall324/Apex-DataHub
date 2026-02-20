@@ -1,438 +1,174 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Datahub - Browse More, Spend Less</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/805ad5/ffffff?text=AD">
-    
-    <!-- Open Graph / Social Share -->
-    <meta property="og:title" content="Apex Datahub - Browse More, Spend Less">
-    <meta property="og:description" content="Your trusted partner for non-expiry data bundles. Fast, reliable, and affordable data delivery.">
-    <meta property="og:image" content="https://placehold.co/1200x630/805ad5/ffffff?text=Apex+Datahub">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts for 'Inter' font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .section {
-            scroll-margin-top: 80px; /* Offset for fixed header */
-        }
-        .animate-fade-in {
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <title>Apex DataHub - Non-Expiry Data Bundles</title>
+    <meta name="description" content="Affordable MTN, Telecel & AirtelTigo Data Bundles in Ghana. Fast delivery & trusted service.">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-900">
 
-    <!-- Fixed Header/Navigation -->
-    <header class="bg-white shadow-lg fixed w-full z-20 top-0 left-0">
-        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="#home" class="text-2xl font-bold text-indigo-600">Apex Datahub</a>
-            <div class="flex items-center space-x-4 md:space-x-8">
-                <a href="#home" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-semibold">Home</a>
-                <a href="#services" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-semibold">Services</a>
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-semibold">About</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-semibold">Contact</a>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Apex Logo">
+                <span class="logo-text">Apex <b>DataHub</b></span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="chatbot.html">Chat</a>
+                <a href="contact.html">Contact</a>
             </div>
         </nav>
     </header>
 
-    <!-- Home/Hero Section -->
-    <main id="home" class="flex flex-col items-center justify-center min-h-screen pt-20 bg-gradient-to-br from-purple-700 via-indigo-600 to-blue-500 text-white p-4">
-        <div class="text-center max-w-4xl px-4 animate-fade-in">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 drop-shadow-md">
-                Browse More, <br class="md:hidden">Spend Less.
-            </h1>
-            <p class="text-lg md:text-2xl font-light mb-8">
-                Your trusted partner for fast, reliable, and affordable non-expiry data bundles.
-            </p>
-            <button onclick="openModal('MTN 1GB (Gh¢6)')" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-xl hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
-                Place an Order
-            </button>
-        </div>
-    </main>
-
-    <!-- Services Section -->
-    <section id="services" class="section container mx-auto px-4 py-16">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-800">Our Data Bundles</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- MTN Section -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center shadow-inner">
-                        <span class="font-bold text-lg text-gray-800">MTN</span>
-                    </div>
-                </div>
-                <h3 class="text-3xl font-bold text-center mb-4">MTN</h3>
-                <ul class="text-center space-y-2 text-gray-600">
-                    <li class="p-2 bg-gray-100 rounded-lg">1GB - <span class="font-semibold text-gray-800">Gh¢6</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">2GB - <span class="font-semibold text-gray-800">Gh¢12</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">3GB - <span class="font-semibold text-gray-800">Gh¢17</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">4GB - <span class="font-semibold text-gray-800">Gh¢23</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">5GB - <span class="font-semibold text-gray-800">Gh¢28</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">6GB - <span class="font-semibold text-gray-800">Gh¢34</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">8GB - <span class="font-semibold text-gray-800">Gh¢44</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">10GB - <span class="font-semibold text-gray-800">Gh¢50</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">15GB - <span class="font-semibold text-gray-800">Gh¢72</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">20GB - <span class="font-semibold text-gray-800">Gh¢95</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">25GB - <span class="font-semibold text-gray-800">Gh¢115</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">30GB - <span class="font-semibold text-gray-800">Gh¢135</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">40GB - <span class="font-semibold text-gray-800">Gh¢175</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">50GB - <span class="font-semibold text-gray-800">Gh¢220</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">100GB - <span class="font-semibold text-gray-800">Gh¢420</span></li>
-                </ul>
-                <button onclick="openModal('MTN 1GB (Gh¢6)')" class="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-                    Order Now
-                </button>
-            </div>
-            
-            <!-- Telecel Section -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-inner">
-                        <span class="font-bold text-lg text-white">Telecel</span>
-                    </div>
-                </div>
-                <h3 class="text-3xl font-bold text-center mb-4">Telecel</h3>
-                <ul class="text-center space-y-2 text-gray-600">
-                    <li class="p-2 bg-gray-100 rounded-lg">5GB - <span class="font-semibold text-gray-800">Gh¢29</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">8GB - <span class="font-semibold text-gray-800">Gh¢37</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">10GB - <span class="font-semibold text-gray-800">Gh¢45</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">12GB - <span class="font-semibold text-gray-800">Gh¢55</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">15GB - <span class="font-semibold text-gray-800">Gh¢64</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">20GB - <span class="font-semibold text-gray-800">Gh¢83</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">25GB - <span class="font-semibold text-gray-800">Gh¢104</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">30GB - <span class="font-semibold text-gray-800">Gh¢124</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">35GB - <span class="font-semibold text-gray-800">Gh¢152</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">40GB - <span class="font-semibold text-gray-800">Gh¢162</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">50GB - <span class="font-semibold text-gray-800">Gh¢195</span></li>
-                    <li class="p-2 bg-gray-100 rounded-lg">100GB - <span class="font-semibold text-gray-800">Gh¢390</span></li>
-                </ul>
-                <button onclick="openModal('Telecel 5GB (Gh¢29)')" class="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-                    Order Now
-                </button>
-            </div>
-
-
-            <!-- At Section -->
-      <!-- AirtelTigo Section with Promo -->
-      <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-        <div class="flex items-center justify-center mb-4">
-          <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center shadow-inner">
-            <span class="font-bold text-lg text-white">A-Tigo</span>
-          </div>
-        </div>
-        <h3 class="text-3xl font-bold text-center mb-2">AirtelTigo <span class="promo-badge">DEC Promo</span></h3>
-        <ul class="text-center space-y-2 text-gray-600">
-          <li class="p-2 bg-yellow-100 rounded-lg">1GB - <span class="line-through text-gray-500">Gh¢7</span> <span class="font-semibold text-gray-800 ml-2">Gh¢6</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">2GB - <span class="line-through text-gray-500">Gh¢14</span> <span class="font-semibold text-gray-800 ml-2">Gh¢11</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">3GB - <span class="line-through text-gray-500">Gh¢21</span> <span class="font-semibold text-gray-800 ml-2">Gh¢16</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">4GB - <span class="line-through text-gray-500">Gh¢28</span> <span class="font-semibold text-gray-800 ml-2">Gh¢21</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">5GB - <span class="line-through text-gray-500">Gh¢35</span> <span class="font-semibold text-gray-800 ml-2">Gh¢27</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">6GB - <span class="line-through text-gray-500">Gh¢39</span> <span class="font-semibold text-gray-800 ml-2">Gh¢32</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">8GB - <span class="line-through text-gray-500">Gh¢46</span> <span class="font-semibold text-gray-800 ml-2">Gh¢38</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">10GB - <span class="line-through text-gray-500">Gh53</span> <span class="font-semibold text-gray-800 ml-2">Gh¢47</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">15GB - <span class="line-through text-gray-500">Gh¢60</span> <span class="font-semibold text-gray-800 ml-2">Gh¢68</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">20GB - <span class="line-through text-gray-500">Gh¢97</span> <span class="font-semibold text-gray-800 ml-2">Gh¢89</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">25GB - <span class="line-through text-gray-500">Gh¢120</span> <span class="font-semibold text-gray-800 ml-2">Gh¢111</span></li>
-          <!-- Promo price list -->
-          <li class="p-2 bg-yellow-100 rounded-lg">30GB – <span class="line-through text-gray-500">Gh¢130</span> <span class="font-semibold text-gray-800 ml-2">Gh¢120</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">40GB – <span class="line-through text-gray-500">Gh¢168</span> <span class="font-semibold text-gray-800 ml-2">Gh¢135</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">50GB – <span class="line-through text-gray-500">Gh¢205</span> <span class="font-semibold text-gray-800 ml-2">Gh¢150</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">60GB – <span class="line-through text-gray-500">Gh¢240</span> <span class="font-semibold text-gray-800 ml-2">Gh¢160</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">70GB – <span class="line-through text-gray-500">Gh¢265</span> <span class="font-semibold text-gray-800 ml-2">Gh¢185</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">80GB – <span class="line-through text-gray-500">Gh¢300</span> <span class="font-semibold text-gray-800 ml-2">Gh¢200</span></li>
-          <li class="p-2 bg-yellow-100 rounded-lg">100GB – <span class="line-through text-gray-500">Gh¢350</span> <span class="font-semibold text-gray-800 ml-2">Gh¢250</span></li>
-        </ul>
-        <button onclick="openModal('AirtelTigo 30GB (Gh¢120)')" class="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-          Order Now
-        </button>
-      </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Affordable Data Bundles in Ghana</h1>
+            <p class="subtitle">Fast Delivery • Trusted Service • Best Prices</p>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="about" class="section bg-gray-200 py-16">
-        <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800">Why Choose Apex Datahub?</h2>
-            <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                We are more than just a data provider. We are your trusted partner in staying connected. Our commitment to <span class="font-bold">fast, non-expiry data delivery</span> and <span class="font-bold">transparent pricing</span> across all major networks ensures you get the best value without any hidden fees or surprises. Our reliable service and dedication to customer satisfaction make your digital life easier and more affordable.
-            </p>
-            <div class="mt-12 flex flex-wrap justify-center gap-6">
-                <div class="bg-white rounded-2xl shadow-lg p-6 w-full sm:w-64 transform transition-transform duration-300 hover:scale-105">
-                    <div class="flex justify-center items-center h-12 w-12 mx-auto mb-4 bg-indigo-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.016 12.016 0 003 9c0 5.591 3.824 10.29 9 11.649 5.176-1.359 9-6.058 9-11.649a12.016 12.016 0 00-1.382-3.056z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-indigo-600 mb-2">Reliable Service</h3>
-                    <p class="text-gray-600 text-sm">Consistent and trustworthy data delivery.</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 w-full sm:w-64 transform transition-transform duration-300 hover:scale-105">
-                    <div class="flex justify-center items-center h-12 w-12 mx-auto mb-4 bg-indigo-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-indigo-600 mb-2">Fast Delivery</h3>
-                    <p class="text-gray-600 text-sm">Average waiting time of just 15-45 minutes.</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 w-full sm:w-64 transform transition-transform duration-300 hover:scale-105">
-                    <div class="flex justify-center items-center h-12 w-12 mx-auto mb-4 bg-indigo-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-indigo-600 mb-2">Non-Expiry</h3>
-                    <p class="text-gray-600 text-sm">Your data bundles last forever until you use them.</p>
-                </div>
-            </div>
-        </div>
+    <!-- NETWORK CARDS -->
+    <section class="networks-grid">
+        <a class="network-card" href="bundles.html?network=mtn">
+            <img src="images/mtn.png" alt="MTN Logo" class="network-logo">
+            <h2 class="network-title mtn-title">MTN Bundles</h2>
+            <div class="bundle-grid" style="pointer-events:none;opacity:0.5;"></div>
+        </a>
+        <a class="network-card" href="bundles.html?network=airtel">
+            <img src="images/at.png" alt="AirtelTigo Logo" class="network-logo">
+            <h2 class="network-title airtel-title"> AirtelTigo Bundles</h2>
+            <div class="bundle-grid" style="pointer-events:none;opacity:0.5;"></div>
+        </a>
+        <a class="network-card" href="bundles.html?network=telecel">
+            <img src="images/telecel.png" alt="Telecel Logo" class="network-logo">
+            <h2 class="network-title telecel-title"> Telecel Bundles</h2>
+            <div class="bundle-grid" style="pointer-events:none;opacity:0.5;"></div>
+        </a>
+        <a class="network-card" href="apex-data-bundle.png">
+            <img src="apex-data-bundle.png" alt="Apex Data Bundle Logo" class="network-logo">
+            <h2 class="network-title apex-bundle-title"> Apex Data Bundles</h2>
+            <div class="bundle-grid" style="pointer-events:none;opacity:0.5;"></div>
+        </a>
     </section>
-    
-    <!-- Multi-Column Footer -->
-    <footer id="contact" class="bg-gray-900 text-gray-300 py-16">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
-            
-            <!-- Column 1: Brand & Description -->
-            <div class="md:col-span-2">
-                <a href="#home" class="text-3xl font-extrabold text-white mb-4 block">Apex Datahub</a>
-                <p class="text-sm leading-relaxed max-w-lg mx-auto md:mx-0">
-                    Your trusted partner for non-expiry data bundles. We provide fast, reliable, and affordable data to keep you connected, no matter what.
-                </p>
+
+    <!-- FLOATING WHATSAPP BUTTONS -->
+    <div class="floating-whatsapp">
+        <a class="whatsapp-btn chat" href="https://wa.me/233597323795" target="_blank">
+            <img src="images/whatsapp.png" alt="Chat on WhatsApp">
+            <span>Chat Us</span>
+        </a>
+        <a class="whatsapp-btn group" href="https://chat.whatsapp.com/IN11FQVOpgPBp6pVbxlCtE" target="_blank">
+            <img src="images/whatsapp.png" alt="Join WhatsApp Group">
+            <span>Join Group</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Apex DataHub</h2>
+                <p>Affordable Data Bundle • Mashup • Airtime Services in Ghana</p>
             </div>
-            
-            <!-- Column 2: Quick Links -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
-                    <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
-                    <li><a onclick="openModal('MTN 1GB (Gh¢6)')" class="cursor-pointer text-gray-400 hover:text-white transition-colors duration-300">Place Order</a></li>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bundles.html">Bundles</a></li>
+                    <li><a href="chatbot.html">AI Assistant</a></li>
+                    <li><a href="contact.html">Order</a></li>
                 </ul>
             </div>
-            
-            <!-- Column 3: Contact Info -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Contact Info</h3>
-                <address class="not-italic space-y-3">
-                    <!-- Email -->
-                    <div class="flex items-center justify-center md:justify-start space-x-2">
-                        <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <a href="mailto:apexmall324@gmail.com" class="text-sm hover:text-white">apexmall324@gmail.com</a>
-                    </div>
-                    
-                    <!-- Phone -->
-                    <div class="flex items-center justify-center md:justify-start space-x-2">
-                        <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.82 3.84 5.22 6.66 6.66l2.07-2.07a1 1 0 011.02-.24c1.2.48 2.5.74 3.8.74 1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2C7.94 22 2 16.06 2 9V7c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2 0 1.3.26 2.6.74 3.8.1.5-.08 1.01-.24 1.48l-2.07 2.07z"/></svg>
-                        <a href="tel:+233597323795" class="text-sm hover:text-white">+233 597 323 795</a>
-                    </div>
-                    
-                    <!-- Social Links -->
-                    <div class="flex flex-col items-center md:items-start space-y-2 pt-2">
-                        <a href="https://t.me/apex_datahub" target="_blank" class="flex items-center space-x-2 hover:text-white">
-                            <i class="fab fa-telegram-plane"></i> <span>@apex_datahub</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@apex.datahub" target="_blank" class="flex items-center space-x-2 hover:text-white">
-                            <i class="fab fa-tiktok"></i> <span>@apex.datahub</span>
-                        </a>
-                    </div>
-                </address>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/233597323795" target="_blank">WhatsApp</a>
+                    <a href="https://t.me/apexmall1" target="_blank">Telegram</a>
+                    <a href="https://www.tiktok.com/@apex.datahub" target="_blank">TikTok</a>
+                </div>
             </div>
-            
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>📞 0597323795</p>
+                <p class="warning">⚠️ Data delivery is not instant. Payment before delivery.</p>
+            </div>
         </div>
-        
-        <!-- Bottom -->
-        <div class="mt-16 border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
-            &copy; 2025 Apex Datahub. All Rights Reserved.
-        </div>
+        <div class="footer-bottom">© 2025 Apex DataHub • Secure • Reliable</div>
     </footer>
-    
-    <!-- The Modal for the Order Form -->
-    <div id="orderModal" class="fixed inset-0 z-30 hidden flex items-center justify-center p-4 bg-gray-900 bg-opacity-75 backdrop-blur-sm transition-opacity duration-300">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 md:p-8 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-            <p class="text-sm font-bold text-red-600 mt-4 text-center">
-                Do not buy MTN Data for Turbonet SIMS, Broadband SIMS, Wrong Number, & Different Network and Debted Simcard, You will lose money !
-            </p>
-            <h2 class="text-3xl font-extrabold text-center mb-6 text-gray-800">Place an Order</h2>
-            <form id="orderForm" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-gray-700 font-semibold mb-2">Your Full Name</label>
-                    <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your full name" required>
+
+    <!-- IMPORTANT NOTICE MODAL -->
+    <div id="noticeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeNotice">&times;</span>
+            <h2>Important Notice</h2>
+            <ul>
+                <li>Data bundle delivery is not instant. Some numbers may receive data faster while others take some time.</li>
+                <li>Report your order within 24&nbsp;hours if it is not received after it is completed; after 24&nbsp;hours we can’t check it.</li>
+                <li>Don't buy the wrong package, it’s not reversible</li>
+                <li>Don't place double orders for the same MTN number at the same time; one will be rejected and no refund will be provided.</li>
+                <li>Data sent to a wrong number is not refundable or reversible.</li>
+                <li>Data to AirtelTigo inactive & newly activated SIM is not refundable or reversible.</li>
+                <!-- <li>AirtelTigo data to different network is not refundable or reversible.</li> -->
+                <div class="footer-social">
+                    <h3>FOLLOW OUR SOCIALS</h3>
+                    <div class="social-icons">
+                        <a href="https://wa.me/233597323795" target="_blank">WhatsApp</a>
+                        <a href="https://t.me/apexmall1" target="_blank">Telegram</a>
+                        <a href="https://www.tiktok.com/@apex.datahub" target="_blank">TikTok</a>
+                    </div>
                 </div>
-                <div>
-                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number to Recharge</label>
-                    <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., 0541234567" required>
-                </div>
-                <div>
-                    <label for="plan" class="block text-gray-700 font-semibold mb-2">Select Data Plan</label>
-                    <select id="plan" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                        <option value="">-- Choose a plan --</option>
-                        <optgroup label="MTN">
-                            <option value="MTN 1GB (Gh¢6)">1GB (Gh¢6)</option>
-                            <option value="MTN 2GB (Gh¢12)">2GB (Gh¢12)</option>
-                            <option value="MTN 3GB (Gh¢17)">3GB (Gh¢17)</option>
-                            <option value="MTN 4GB (Gh¢23)">4GB (Gh¢23)</option>
-                            <option value="MTN 5GB (Gh¢28)">5GB (Gh¢28)</option>
-                            <option value="MTN 6GB (Gh¢34)">6GB (Gh¢34)</option>
-                            <option value="MTN 8GB (Gh¢44)">8GB (Gh¢44)</option>
-                            <option value="MTN 10GB (Gh¢50)">10GB (Gh¢50)</option>
-                            <option value="MTN 15GB (Gh¢72)">15GB (Gh¢72)</option>
-                            <option value="MTN 20GB (Gh¢95)">20GB (Gh¢95)</option>
-                            <option value="MTN 25GB (Gh¢115)">25GB (Gh¢115)</option>
-                            <option value="MTN 30GB (Gh¢135)">30GB (Gh¢135)</option>
-                            <option value="MTN 40GB (Gh¢175)">40GB (Gh¢175)</option>
-                            <option value="MTN 50GB (Gh¢220)">50GB (Gh¢220)</option>
-                            <option value="MTN 100GB (Gh¢420)">100GB (Gh¢420)</option>
-                        </optgroup>
-                        <optgroup label="Telecel">
-                            <option value="Telecel 5GB (Gh¢29)">5GB (Gh¢29)</option>
-                            <option value="Telecel 8GB (Gh¢37)">8GB (Gh¢37)</option>
-                            <option value="Telecel 10GB (Gh¢45)">10GB (Gh¢45)</option>
-                            <option value="Telecel 12GB (Gh¢55)">12GB (Gh¢55)</option>
-                            <option value="Telecel 15GB (Gh¢64)">15GB (Gh¢64)</option>
-                            <option value="Telecel 20GB (Gh¢83)">20GB (Gh¢83)</option>
-                            <option value="Telecel 25GB (Gh¢104)">25GB (Gh¢104)</option>
-                            <option value="Telecel 30GB (Gh¢124)">30GB (Gh¢124)</option>
-                            <option value="Telecel 35GB (Gh¢152)">35GB (Gh¢152)</option>
-                            <option value="Telecel 40GB (Gh¢162)">40GB (Gh¢162)</option>
-                            <option value="Telecel 50GB (Gh¢195)">50GB (Gh¢195)</option>
-                            <option value="Telecel 100GB (Gh¢390)">100GB (Gh¢390)</option>
-                        </optgroup>
-                        <optgroup label="At">
-                            <option value="At 1GB (Gh¢6)">1GB (Gh¢6)</option>
-                            <option value="At 2GB (Gh¢10)">2GB (Gh¢10)</option>
-                            <option value="At 3GB (Gh¢15)">3GB (Gh¢15)</option>
-                            <option value="At 4GB (Gh¢19)">4GB (Gh¢19)</option>
-                            <option value="At 5GB (Gh¢24)">5GB (Gh¢24)</option>
-                            <option value="At 6GB (Gh¢30)">6GB (Gh¢30)</option>
-                            <option value="At 8GB (Gh¢37)">8GB (Gh¢37)</option>
-                            <option value="At 10GB (Gh¢46)">10GB (Gh¢46)</option>
-                            <option value="At 15GB (Gh¢67)">15GB (Gh¢67)</option>
-                            <option value="At 20GB (Gh¢89)">20GB (Gh¢89)</option>
-                            <option value="At 25GB (Gh¢111)">25GB (Gh¢111)</option>
-                            <option value="At 30GB (Gh¢130)">30GB (Gh¢130)</option>
-                            <option value="At 40GB (Gh¢168)">40GB (Gh¢168)</option>
-                            <option value="At 50GB (Gh¢205)">50GB (Gh¢205)</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <button type="submit" id="submitButton" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-green-600 transition-colors duration-300 flex items-center justify-center">
-                    <span id="buttonText">Place Order via WhatsApp</span>
-                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </button>
-                <p id="successMessage" class="hidden text-center text-green-600 font-semibold mt-4">Order request sent successfully! Redirecting you to WhatsApp...</p>
-            </form>
+            </ul>
         </div>
     </div>
-    
+
+    <!-- SCRIPTS -->
     <script>
-        // Modal functions
-        const orderModal = document.getElementById('orderModal');
-        const planSelect = document.getElementById('plan');
-
-        function openModal(preselectedPlan) {
-            if (preselectedPlan) {
-                planSelect.value = preselectedPlan;
-            }
-            orderModal.classList.remove('hidden');
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
         }
-
-        function closeModal() {
-            orderModal.classList.add('hidden');
-            // Reset the form and messages
-            const orderForm = document.getElementById('orderForm');
-            const submitButton = document.getElementById('submitButton');
-            const buttonText = document.getElementById('buttonText');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const successMessage = document.getElementById('successMessage');
-
-            orderForm.reset();
-            submitButton.disabled = false;
-            buttonText.textContent = 'Place Order via WhatsApp';
-            loadingSpinner.classList.add('hidden');
-            successMessage.classList.add('hidden');
-        }
-        
-        // Form submission logic
-        document.addEventListener('DOMContentLoaded', function() {
-            const orderForm = document.getElementById('orderForm');
-            const submitButton = document.getElementById('submitButton');
-            const buttonText = document.getElementById('buttonText');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const successMessage = document.getElementById('successMessage');
-            
-            orderForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const plan = planSelect.value;
-                const whatsappNumber = '233597323795';
-
-                if (!name || !phone || !plan) {
-                    console.error('Please fill in all fields.');
-                    return;
+        // Notice modal logic
+        window.addEventListener('load', function() {
+            var modal = document.getElementById('noticeModal');
+            var closeBtn = document.getElementById('closeNotice');
+            modal.style.display = 'block';
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            };
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
                 }
-
-                // Show loading state
-                submitButton.disabled = true;
-                buttonText.textContent = 'Processing...';
-                loadingSpinner.classList.remove('hidden');
-
-                const whatsappMessage = `Hello Apex Datahub, my name is ${name}. I would like to order the ${plan} plan for the number ${phone}. Thank you!`;
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-                // Simulate processing delay for a better user experience
-                setTimeout(() => {
-                    // Show success message
-                    successMessage.classList.remove('hidden');
-                    
-                    // Reset button to initial state
-                    submitButton.disabled = false;
-                    buttonText.textContent = 'Place Order via WhatsApp';
-                    loadingSpinner.classList.add('hidden');
-                    
-                    // Redirect to WhatsApp after showing the success message
-                    setTimeout(() => {
-                        window.open(whatsappUrl, '_blank');
-                        closeModal();
-                    }, 1500); // 1.5 second delay before redirect
-                }, 1000); // 1 second processing delay
-            });
+            };
         });
+        // Hero background image swiping
+        const heroImages = [
+            'images/mtn.png',
+            'images/at.png',
+            'images/telecel.png',
+            'apex-data-bundle.png',
+            'images/logo.png'
+        ];
+        let current = 0;
+        const hero = document.querySelector('.hero');
+        function updateHeroBg() {
+            hero.style.backgroundImage = `url('${heroImages[current]}')`;
+            current = (current + 1) % heroImages.length;
+        }
+        updateHeroBg();
+        setInterval(updateHeroBg, 3000);
     </script>
 </body>
+
+</body>
 </html>
-
-
-
-
