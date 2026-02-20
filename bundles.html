@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex DataHub - Bundles</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+
+<!-- ================= HEADER ================= -->
+<header>
+    <nav>
+        <!-- logo + home link -->
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Apex DataHub Logo">
+            <span class="logo-text">Apex <b>DataHub</b></span>
+        </a>
+
+        <!-- navigation links -->
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="chatbot.html" >Chatbot</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+
+        <!-- hamburger for mobile -->
+        <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+    <!-- ORDER MODAL -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeOrder">&times;</span>
+            <h2>Confirm Order</h2>
+            <p>Bundle: <strong id="orderGb"></strong> — <span id="orderNetwork"></span> — <span id="orderPrice"></span></p>
+            <label for="orderPhone">Enter recipient phone number</label>
+            <input id="orderPhone" type="tel" placeholder="e.g., 0597323795" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-top:8px;">
+            <div style="margin-top:14px;display:flex;gap:8px;">
+                <button id="confirmOrderBtn" class="buy-btn">Confirm & Order</button>
+                <button id="cancelOrderBtn" class="buy-btn" style="background:#ddd;color:#333;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Order modal event wiring
+        document.addEventListener('DOMContentLoaded', function(){
+            const closeOrder = document.getElementById('closeOrder');
+            const cancelBtn = document.getElementById('cancelOrderBtn');
+            const confirmBtn = document.getElementById('confirmOrderBtn');
+            const modal = document.getElementById('orderModal');
+            if(closeOrder) closeOrder.onclick = closeOrderModal;
+            if(cancelBtn) cancelBtn.onclick = closeOrderModal;
+            if(confirmBtn) confirmBtn.onclick = confirmOrder;
+            window.onclick = function(e){ if(e.target == modal) closeOrderModal(); };
+        });
+    </script>
+
+</body>
+        <section id="mtn" class="network-section">
+            <h2 class="network-title mtn-title">📶 MTN Bundles</h2>
+            <div class="bundle-grid bundles" id="mtnGrid"></div>
+        </section>
+
+        <!-- AIRTELTIGO -->
+        <section id="airtel" class="network-section">
+            <h2 class="network-title airtel-title">📶 AirtelTigo Bundles</h2>
+            <div class="bundle-grid bundles" id="airtelGrid"></div>
+        </section>
+
+        <!-- TELECEL -->
+        <section id="telecel" class="network-section">
+            <h2 class="network-title telecel-title">📶 Telecel Bundles</h2>
+            <div class="bundle-grid bundles" id="telecelGrid"></div>
+        </section>
+
+    </div><!-- /.container -->
+
+</main>
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- FLOATING WHATSAPP BUTTONS -->
+<div class="floating-whatsapp">
+    
+    <!-- Chat on WhatsApp -->
+    <a class="whatsapp-btn chat" 
+       href="https://wa.me/233597323795" 
+       target="_blank">
+        <img src="images/whatsapp.png" alt="Chat on WhatsApp">
+        <span>Chat Us</span>
+    </a>
+
+    <!-- Join WhatsApp Group -->
+    <a class="whatsapp-btn group" 
+       href="https://chat.whatsapp.com/IN11FQVOpgPBp6pVbxlCtE" 
+       target="_blank">
+        <img src="images/whatsapp.png" alt="Join WhatsApp Group">
+        <span>Join Whatsapp Group</span>
+    </a>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <h2>Apex DataHub</h2>
+            <p>Affordable Data Bundle • Mashup • Airtime Services in Ghana</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bundles.html">Bundles</a></li>
+                <li><a href="chatbot.html">AI Assistant</a></li>
+                <li><a href="contact.html">Order</a></li>
+            </ul>
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-social">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="https://wa.me/233597323795" target="_blank">WhatsApp</a>
+                <a href="https://t.me/apexmall1" target="_blank">Telegram</a>
+                <a href="https://www.tiktok.com/@apex.datahub" target="_blank">TikTok</a>
+            </div>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>📞 0597323795</p>
+            <p class="warning">
+                ⚠️ Data delivery is not instant. Payment before delivery.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+        © 2025 Apex DataHub • Secure • Reliable
+    </div>
+
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+/* HAMBURGER MENU */
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+    document.getElementById("hamburger").classList.toggle("active");
+}
+
+/* DATA */
+const mtn = [
+    ["1GB","GHC 5"],["2GB","GHC 10"],["3GB","GHC 14"],["4GB","GHC 20"],
+    ["5GB","GHC 24"],["6GB","GHC 29"],["8GB","GHC 36"],["10GB","GHC 44"],
+    ["15GB","GHC 65"],["20GB","GHC 84"],["25GB","GHC 105"],["30GB","GHC 125"]
+];
+
+const airtel = [
+    ["1GB","GHC 5"],["2GB","GHC 10"],["3GB","GHC 14"],["4GB","GHC 20"],
+    ["5GB","GHC 24"],["6GB","GHC 29"],["8GB","GHC 36"],["10GB","GHC 44"],
+    ["15GB","GHC 65"],["20GB","GHC 72"],["25GB","GHC 85"],["40GB","GHC 90"]
+];
+
+const telecel = [
+    ["1GB","GHC 6"],["5GB","GHC 25"],["8GB","GHC 32"],["10GB","GHC 45"],
+    ["15GB","GHC 65"],["20GB","GHC 82"],["25GB","GHC 100"],["30GB","GHC 116"],
+    ["40GB","GHC 152"],["50GB","GHC 185"],["100GB","GHC 365"]
+];
+
+/* CREATE CARDS */
+function createCards(data, gridId, network){
+    const grid = document.getElementById(gridId);
+    // choose logo based on network name
+    const logoMap = {
+        mtn: 'images/mtn.png',
+        airtel: 'images/at.png',
+        telecel: 'images/telecel.png'
+    };
+    const logoSrc = logoMap[network] || '';
+    grid.innerHTML = data.map(bundle => {
+        // create clickable card that opens a phone-number prompt before sending the WhatsApp message
+        return `
+        <div class="bundle-card ${network}" role="button" tabindex="0" onclick="initiateOrder('${network}','${bundle[0]}','${bundle[1]}')">
+            <img src="${logoSrc}" class="card-logo" alt="${network.toUpperCase()} logo">
+            <div class="gb">${bundle[0]}</div>
+            <div class="price">${bundle[1]}</div>
+            <div class="actions">
+                <button class="buy-btn" onclick="event.stopPropagation(); initiateOrder('${network}','${bundle[0]}','${bundle[1]}')">Buy Now</button>
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+/* ORDER MODAL LOGIC */
+let _pendingOrder = null;
+function initiateOrder(network, gb, price){
+    _pendingOrder = {network, gb, price};
+    const modal = document.getElementById('orderModal');
+    document.getElementById('orderNetwork').textContent = network.toUpperCase();
+    document.getElementById('orderGb').textContent = gb;
+    document.getElementById('orderPrice').textContent = price;
+    document.getElementById('orderPhone').value = '';
+    modal.style.display = 'block';
+    document.getElementById('orderPhone').focus();
+}
+
+function closeOrderModal(){
+    const modal = document.getElementById('orderModal');
+    modal.style.display = 'none';
+    _pendingOrder = null;
+}
+
+function confirmOrder(){
+    const phoneRaw = document.getElementById('orderPhone').value.trim();
+    if(!phoneRaw){ alert('Please enter a phone number'); return; }
+    // normalize phone to international format for wa.me (no + or spaces)
+    let phone = phoneRaw.replace(/\s|\-|\(|\)/g,'');
+    if(phone.startsWith('0')){ phone = '233' + phone.slice(1); }
+    if(phone.startsWith('+')){ phone = phone.slice(1); }
+    if(!/^\d{9,15}$/.test(phone)){
+        if(!confirm('Phone number looks unusual. Continue?')) return;
+    }
+    if(!_pendingOrder){ alert('No order data. Try again.'); closeOrderModal(); return; }
+    const msg = `Hello, I want to order ${_pendingOrder.gb} ${_pendingOrder.network.toUpperCase()} bundle for ${_pendingOrder.price} to this number: ${phoneRaw}`;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+    closeOrderModal();
+}
+
+/* WHATSAPP ORDER */
+function order(network, gb, price){
+    const msg = `Hello, I want to order ${gb} ${network.toUpperCase()} bundle for ${price}`;
+    window.open(`https://wa.me/233597323795?text=${encodeURIComponent(msg)}`);
+}
+
+/* QUERY FILTER (SMART) */
+function getQueryParam(name){
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+}
+
+const selected = getQueryParam('network');
+
+if(selected === 'mtn'){
+    document.getElementById('airtel').style.display = 'none';
+    document.getElementById('telecel').style.display = 'none';
+    createCards(mtn,"mtnGrid","mtn");
+}
+else if(selected === 'airtel'){
+    document.getElementById('mtn').style.display = 'none';
+    document.getElementById('telecel').style.display = 'none';
+    createCards(airtel,"airtelGrid","airtel");
+}
+else if(selected === 'telecel'){
+    document.getElementById('mtn').style.display = 'none';
+    document.getElementById('airtel').style.display = 'none';
+    createCards(telecel,"telecelGrid","telecel");
+}
+else{
+    createCards(mtn,"mtnGrid","mtn");
+    createCards(airtel,"airtelGrid","airtel");
+    createCards(telecel,"telecelGrid","telecel");
+}
+</script>
+
+</body>
+</html>

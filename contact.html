@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex DataHub - Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Apex DataHub Logo">
+                <span class="logo-text">Apex <b>DataHub</b></span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="chatbot.html">Chatbot</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="container">
+            <h1>Contact Apex DataHub</h1>
+            <p>Reach us via:</p>
+            <ul>
+                <li>WhatsApp: <a href="https://wa.me/233597323795">233597323795</a></li>
+                <li>Phone: 0597323795</li>
+                <li>Email: <a href="mailto:apexmall324@gmail.com">apexmall324@gmail.com</a></li>
+            </ul>
+            <h2>Business Hours</h2>
+            <p>Monday – Friday: 8 AM – 8 PM<br>
+                 Saturday: 8 AM – 8 PM<br>
+                 Sunday: 10 AM – 6 PM</p>
+            <h2>Quick Order</h2>
+            <p>If you want to place an order immediately, click the button below or use the form.</p>
+            <a class="buy-btn" href="https://wa.me/233597323795?text=Hello%20Apex%20DataHub%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank">Order via WhatsApp</a>
+            <h2>Send Us a Message</h2>
+            <form class="contact-form" action="mailto:apexmall324@gmail.com" method="post" enctype="text/plain">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <button type="submit" class="buy-btn">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FLOATING WHATSAPP BUTTONS -->
+    <div class="floating-whatsapp">
+        <a class="whatsapp-btn chat" href="https://wa.me/233597323795" target="_blank">
+            <img src="images/whatsapp.png" alt="Chat on WhatsApp">
+            <span>Chat Us</span>
+        </a>
+        <a class="whatsapp-btn group" href="https://chat.whatsapp.com/IN11FQVOpgPBp6pVbxlCtE" target="_blank">
+            <img src="images/whatsapp.png" alt="Join WhatsApp Group">
+            <span>Join Whatsapp Group</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Apex DataHub</h2>
+                <p>Affordable Data Bundle • Mashup • Airtime Services in Ghana</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bundles.html">Bundles</a></li>
+                    <li><a href="chatbot.html">AI Assistant</a></li>
+                    <li><a href="contact.html">Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/233597323795" target="_blank">WhatsApp</a>
+                    <a href="https://t.me/apexmall1" target="_blank">Telegram</a>
+                    <a href="https://www.tiktok.com/@apex.datahub" target="_blank">TikTok</a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>📞 0597323795</p>
+                <p class="warning">⚠️ Data delivery is not instant. Payment before delivery.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 Apex DataHub • Secure • Reliable</div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+    </script>
+</body>
+</body>
+</html>

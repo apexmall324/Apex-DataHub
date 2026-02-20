@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex DataHub – Chatbot</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <nav>
+        <!-- logo + home link -->
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Apex DataHub Logo">
+            <span class="logo-text">Apex <b>DataHub</b></span>
+        </a>
+
+        <!-- navigation links -->
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="chatbot.html" class="active">Chatbot</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- hamburger for mobile -->
+        <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main>
+    <div class="container">
+        <h1>Chat with our AI Assistant</h1>
+
+        <!-- chat window -->
+        <div class="chat-box" id="chat">
+            <div class="chat-header">
+                <span>AI Assistant</span>
+                <button class="chat-close" onclick="toggleChat()">✕</button>
+            </div>
+            <div class="chat-messages" id="messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="input" class="chat-input"
+                       placeholder="Ask about bundles…"
+                       onkeypress="if(event.key==='Enter') send()">
+                <button onclick="send()" class="chat-send">Send</button>
+            </div>
+        </div>
+
+        <!-- toggle button -->
+        <!-- <button class="chat-btn" onclick="toggleChat()" title="Open chat">🤖</button> -->
+    </div>
+</main>
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+<div class="floating-whatsapp">
+    <a href="https://wa.me/233597323795" target="_blank" class="whatsapp-btn chat">
+        <img src="images/whatsapp.png" alt="WhatsApp">
+        <span>Chat Us</span>
+    </a>
+    <a href="https://chat.whatsapp.com/" target="_blank"
+       class="whatsapp-btn group">
+        <img src="images/whatsapp.png" alt="WhatsApp Group">
+        <span>Join WhatsApp Group</span>
+    </a>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <h2>Apex DataHub</h2>
+            <p>Affordable Data Bundle • Mashup • Airtime Services in Ghana</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bundles.html">Bundles</a></li>
+                <li><a href="chatbot.html">AI Assistant</a></li>
+                <li><a href="contact.html">Order</a></li>
+            </ul>
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-social">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="https://wa.me/233597323795" target="_blank">WhatsApp</a>
+                <a href="https://t.me/apexmall1" target="_blank">Telegram</a>
+                <a href="https://www.tiktok.com/@apex.datahub" target="_blank">TikTok</a>
+            </div>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>📞 0597323795</p>
+            <p class="warning">
+                ⚠️ Data delivery is not instant. Payment before delivery.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+        © 2025 Apex DataHub • Secure • Reliable
+    </div>
+
+</footer>
+<!-- ================= SCRIPT ================= -->
+<script>
+/**
+ * Chatbot Knowledge Base - Network Information
+ */
+const networkInfo = {
+    "mtn": "MTN bundles start at GHC 5 for 1 GB. <a href=\"bundles.html?network=mtn\" target=\"_blank\">See MTN bundles</a>",
+    "telecel": "Telecel has 1 GB for GHC 6 and higher packages up to 10 GB. <a href=\"bundles.html?network=telecel\" target=\"_blank\">See Telecel bundles</a>",
+    "airtel": "AirtelTigo provides non-expiry bundles; the smallest is 500 MB for about GHC 3.50. <a href=\"bundles.html?network=airtel\" target=\"_blank\">See AirtelTigo bundles</a>",
+};
+
+/**
+ * Bundle Pricing Information for Comparisons and lookups
+ */
+const bundlePricing = {
+    "mtn": [
+        { size: "1 GB", price: "GHC 5" },
+        { size: "2 GB", price: "GHC 10" },
+        { size: "5 GB", price: "GHC 20" },
+    ],
+    "telecel": [
+        { size: "1 GB", price: "GHC 6" },
+        { size: "2 GB", price: "GHC 12" },
+        { size: "5 GB", price: "GHC 25" },
+        { size: "30 GB", price: "GHC 150" },
+    ],
+    "airtel": [
+        { size: "500 MB", price: "GHC 3.50" },
+        { size: "1 GB", price: "GHC 7" },
+        { size: "5 GB", price: "GHC 30" },
+    ],
+};
+
+/**
+ * Get current hour for time-based greetings
+ */
+function getTimeBasedGreeting() {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) { return "Good morning! ☀️"; }
+    else if (hour >= 12 && hour < 17) { return "Good afternoon! 😊"; }
+    else if (hour >= 17 && hour < 21) { return "Good evening! 🌅"; }
+    else { return "Good night! 🌙"; }
+}
+
+/**
+ * Hamburger menu toggle for mobile navigation.
+ */
+function toggleMenu(){
+    const navLinks = document.getElementById("navLinks");
+    const hamburger = document.getElementById("hamburger");
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+}
+
+/**
+ * Toggles the chat window and shows initial greeting on first open.
+ */
+function toggleChat(){
+    const chatBox = document.getElementById('chat');
+    const messages = document.getElementById('messages');
+    chatBox.classList.toggle('active');
+    if(messages.children.length === 0){
+        addMsg('bot','Hi! 👋 Ask me about MTN, Telecel, or Airtel bundles.');
+    }
+}
+
+/**
+ * Adds a message to the chat window with XSS protection.
+ */
+function addMsg(sender, text){
+    const messagesDiv = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = `msg ${sender}`;
+    // escape only user text; bot generated messages may include safe HTML links
+    const content = sender === 'user' ? escapeHtml(text) : text;
+    div.innerHTML = `<div class="msg-bubble ${sender}">${content}</div>`;
+    messagesDiv.appendChild(div);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+/**
+ * Escapes HTML to prevent XSS vulnerabilities.
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function getPricingComparison() {
+    let comparison = "Here's a pricing comparison:\n\n";
+    comparison += "📱 MTN: 1 GB (GHC 5), 2 GB (GHC 10), 5 GB (GHC 20)\n";
+    comparison += "📱 Telecel: 1 GB (GHC 6), 2 GB (GHC 12), 5 GB (GHC 25), 30 GB (GHC 150)\n";
+    comparison += "📱 AirtelTigo: 500 MB (GHC 3.50), 1 GB (GHC 7), 5 GB (GHC 30)\n\n";
+    comparison += "💡 MTN offers the best value overall!";
+    return comparison;
+}
+
+function getBestDeals() {
+    return "🏆 Best Deals:\n\n" +
+           "🥇 Best Budget: AirtelTigo 500 MB at GHC 3.50\n" +
+           "🥈 Best Value: MTN 1 GB at GHC 5\n" +
+           "🥉 Best for Heavy Users: MTN 5 GB at GHC 20\n\n" +
+           "All prices include airtime bonus! 🎁";
+}
+
+function getAgentContact() {
+    return "Feel free to WhatsApp or call our agent at 📞 0597323795. " +
+           "You can also place an order on the contact page: " +
+           "<a href=\"contact.html\" target=\"_blank\">Order here</a>.";
+}
+
+function getTrustMessage() {
+    return "✅ We have been in business for the past 3 years and operate honestly. " +
+           "If you doubt us, try purchasing the lowest data bundle – if it isn’t delivered, " +
+           "you can draw your own conclusions. For any concerns, WhatsApp or call 0597323795.";
+}
+
+function parseBundleQuery(text) {
+    const pattern = /(\\d+\\s?gb)/i;
+    const netPattern = /(mtn|telecel|airtel)/i;
+    const sizeMatch = text.match(pattern);
+    const netMatch = text.match(netPattern);
+    if (sizeMatch && netMatch) {
+        return getPriceForBundle(netMatch[1].toLowerCase(), sizeMatch[1].toUpperCase());
+    }
+    return null;
+}
+
+function getPriceForBundle(network, size) {
+    if (bundlePricing[network]) {
+        const obj = bundlePricing[network].find(b => b.size.toUpperCase() === size.toUpperCase());
+        if (obj) {
+            return `The price for ${obj.size} on ${network.toUpperCase()} is ${obj.price}. ` +
+                   `<a href="bundles.html#${network}" target="_blank">See bundle page</a>`;
+        }
+    }
+    return null;
+}
+
+function getResponse(message) {
+    const text = message.toLowerCase();
+    if (/good\\s*(morning|afternoon|evening|night)|hello|hi|hey/.test(text) && !text.includes('bundle')) {
+        return getTimeBasedGreeting() + " How can I help you with data bundles today?";
+    }
+    if (/how\\s*are\\s*you|how's\\s*it|what's\\s*up|sup|whatsup/.test(text)) {
+        return "I'm doing great, thanks! 😊 What bundle are you looking for?";
+    }
+    if (/what.*your.*name|who.*you|introduce/.test(text)) {
+        return "I'm Apex DataHub's AI Assistant! 🤖 I help you find the best data bundle.";
+    }
+    if (/you.*ok|you.*good|doing.*well/.test(text)) {
+        return "I'm functioning perfectly! 😄 Which network can I help you with?";
+    }
+    if (/compar|price.*compar|which.*cheapest|which.*best|vs|versus/.test(text)) {
+        return getPricingComparison();
+    }
+    if (/best.*deal|best.*offer|best.*bundle|recommend|suggestion/.test(text)) {
+        return getBestDeals();
+    }
+    if (/talk\s*to\s*an?\s*agent|agent|contact/.test(text)) {
+        return getAgentContact();
+    }
+    if (/fraud|safe|trust|scam/.test(text)) {
+        return getTrustMessage();
+    }
+    const bundleLookup = parseBundleQuery(text);
+    if (bundleLookup) {
+        return bundleLookup;
+    }
+    for (const [network, info] of Object.entries(networkInfo)) {
+        if (text.includes(network)) {
+            // networkInfo messages already include clickable link
+            return info;
+        }
+    }
+    if (text.includes('help')) {
+        return 'I\'m an assistant for data bundle questions. You can:\n' +
+               '✅ Ask about MTN, Telecel or Airtel bundles\n' +
+               '✅ Compare prices ("compare" or "vs")\n' +
+               '✅ Get best deals ("best deals")\n' +
+               '✅ Ask for agent contact or safety info\n\nWhat would you like to know?';
+    }
+    if (/thank|thanks|thx|appreciate/.test(text)) {
+        return 'You\'re welcome! 😊';
+    }
+    if (/great|awesome|cool|nice|good|excellent/.test(text)) {
+        return 'Happy to help! 🎉 Any other questions?';
+    }
+    return 'Sorry, I didn\'t understand that. Try:\n' +
+           '• Ask for a network (MTN, Telecel, Airtel)\n' +
+           '• Type "compare" for pricing comparison\n' +
+           '• Type "best deals" for recommendations\n' +
+           '• Type "help" for more options';
+}
+
+function send(){
+    const input = document.getElementById('input');
+    const text = input.value.trim();
+    if(!text) return;
+    addMsg('user', text);
+    input.value = '';
+    input.focus();
+    const reply = getResponse(text);
+    setTimeout(() => addMsg('bot', reply), 300);
+}
+</script>
+</body>
+</html>
